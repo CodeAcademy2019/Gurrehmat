@@ -1,11 +1,9 @@
-//unfinshed
-
 function reduce(arr,fn,initial){
-	if(!arr.length) return [];
-	var head = arr[0];
-	initial = function(initial,head,0,arr);
-	var tail = arr.slice(1);
-	return head.assign(reduce)
+    if (!arr.length){ 
+        return {};
+    }
+    var x = fn(initial,arr[0],0,arr);
+    return Object.assign(x, reduce(arr.slice(1),fn,initial))
 }
 
 module.exports=reduce

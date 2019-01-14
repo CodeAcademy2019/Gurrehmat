@@ -1,6 +1,5 @@
-import hello from './program'
-describe('hello', ()=> {
-    it('should output hello', () => {
-        expect(hello()).toBe('HELLO ES6');
-    });
-});
+const program = require('./program');
+
+test('print HELLO ES6', ()=>{
+    expect(program()).toBe('HELLO ES6');
+  });
