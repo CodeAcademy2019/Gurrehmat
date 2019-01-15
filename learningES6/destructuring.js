@@ -1,6 +1,10 @@
-let userArray = process.argv.slice(2);
-let userObject = {};
+const destructure = (userArray)=> {
 
-[ , userObject.username, userObject.email]= userArray;
+    //let userArray = process.argv.slice(2);
+    let userObject = {};
+    [ , userObject.username, userObject.email]= userArray;
 
-console.log(userObject);
+    console.log(userObject);
+    return userObject;
+}
+module.exports = destructure;

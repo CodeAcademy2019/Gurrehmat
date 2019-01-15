@@ -1,5 +1,10 @@
-var inputs = process.argv.slice(2);
-//console.log(inputs);
-var result = inputs.map(str => str.charAt(0)).reduce((result,x)=> result + x,'');
-//console.log(result);
-console.log(`[${inputs}] becomes "${result}"`);
+const firstChars = (...inputs) => {
+    //console.log(inputs);
+    var res = inputs.map(str => str.charAt(0)).reduce((result,x)=> result + x,'');
+    //console.log(result);
+    var finalResult = `[${inputs}] becomes "${res}"`;
+    console.log(finalResult);
+    return finalResult;
+}
+
+module.exports = firstChars;

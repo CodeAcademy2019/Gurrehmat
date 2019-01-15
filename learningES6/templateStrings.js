@@ -1,3 +1,8 @@
-var name = process.argv[2];
-console.log(`Hello, ${name}!
-Your name lowercased is "${name.toLowerCase()}".`);
+const intro = (name)=>{
+    var res = `Hello, ${name}!
+    Your name lowercased is "${name.toLowerCase()}".`;
+    console.log(res);
+    return res;
+}
+//intro();
+module.exports = intro;
