@@ -11,3 +11,7 @@ test(`Should return 'Yo!!!!' for ('Yo',4)`,()=>{
 test(`Should return '' for ''`,()=>{
     expect(exclaim('')).toBe('');
 })
+
+test(`Should return 'Yo!!!!' for ('Yo',null)`,()=>{
+    expect(exclaim('Yo',null)).toBe('Yo!!!!');
+})
