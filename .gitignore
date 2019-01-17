@@ -1,2 +1,4 @@
 /TDD/node_modules
 /learningES6/node_modules
+.DS_Store
+.vscode
