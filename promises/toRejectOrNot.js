@@ -6,3 +6,5 @@ let promise = new Promise((fulfill,reject)=>{
 const onRejected = (error) => console.log(error.message);
 
 promise.then(console.log,onRejected);
+
+module.exports = promise;

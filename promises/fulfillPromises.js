@@ -1,7 +1,9 @@
-let promise = new Promise((fulfill,reject) => {
+const executer = (fulfill,reject) => {
     setTimeout(() => {
-        fulfill('FULFILLED!')
+        fulfill('FULFILLED!');
     }, 300);
-})
-
+}
+let promise = new Promise(executer);
 promise.then(console.log);
+
+module.exports = {executer,promise};
