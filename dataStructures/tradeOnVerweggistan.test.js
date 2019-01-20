@@ -15,4 +15,12 @@ describe('trade', ()=>{
 4 7 2 14 10
 0`)).toEqual("15 29 ");
     });
+
+    it('should return maximum profit for test case ',()=>{
+        expect(tow.trade(`3
+7 3 2 1 3 10 12 2
+6 12 13 14 15 2 3
+3 1 2 3
+0`)).toEqual("62 ");
+    });
 });

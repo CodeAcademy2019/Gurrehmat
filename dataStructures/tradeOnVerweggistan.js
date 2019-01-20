@@ -1,6 +1,6 @@
 const splitString = (inputString,splitter) => inputString.split(splitter);
-var retString = ``;
 const trade = (inputString) => {
+    let retString = ``;
     let lines = inputString.split('\n').map(line => 
         line.split(' ').map(value => parseInt(value,10)));
     
@@ -42,7 +42,7 @@ const trade = (inputString) => {
         i+=lines[i][0]+1;
         console.log(totalMax);
         retString = retString + totalMax + ' ';
-    }while (lines[i][0]!==0);
+    }while (lines[i][0]);
 
     return retString;
 
