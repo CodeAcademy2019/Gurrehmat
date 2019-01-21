@@ -9,5 +9,4 @@ const newLineCounter = () => {
 };
 
 newLineCounter();
- module.exports = newLineCounter;
- 
+module.exports = newLineCounter;
