@@ -5,8 +5,8 @@ describe('summation', () => {
     process.argv = ['node', 'babySteps.js', 4, 3, 1];
     expect(summation()).toEqual(8);
   })
-  it('should concatenate if passed string', () => {
+  it('should return NaN if passed string', () => {
     process.argv = ['node', 'babySteps.js', 'Tom', 1];
-    expect(summation()).toEqual('Tom1');
+    expect(summation()).toEqual(NaN);
   });
 });
