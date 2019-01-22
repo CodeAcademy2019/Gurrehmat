@@ -1,10 +1,11 @@
 let rolls = [];
-// let frames = [];
 
+// function to push incoming rolls into an array storing all rolls
 const roll = (pins) => {
   rolls.push(pins);
 };
 
+// function to convert rolls Array into a frame format
 const rollsToFrames = (rollsArray) => {
   const frameArray = [];
   let frame = [];
@@ -35,10 +36,14 @@ const rollsToFrames = (rollsArray) => {
   return frameArray;
 };
 
+// function which calculates scores from the frames
 const score = () => {
   const frames = rollsToFrames(rolls);
   if (frames.length < 10) {
     return new Error('Game is incomplete');
+  }
+  if (frames[9].length > 3) {
+    return new Error('Player has played excess rolls');
   }
   let tally = 0;
   frames.forEach((frame, index) => {
@@ -50,7 +55,6 @@ const score = () => {
         frameTotal += frames[index + 1][0];
         tally += frameTotal;
       } else if (frameTotal === 10 && frame.length === 1) {
-        // frameTotal += (frames[index + 1][0] + frames[index + 1][1]);
         if (frames[index + 1].length === 1) {
           frameTotal += frames[index + 1][0] + frames[index + 2][0];
         } else {
