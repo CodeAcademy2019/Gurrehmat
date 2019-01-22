@@ -13,12 +13,18 @@ describe('rollsToFrames', () => {
     expect(bowling.rollsToFrames([10, 5, 5, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))
       .toEqual([[10], [5, 5], [9, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]);
   });
-  it('should handle fill ball', () => {
+  it('should handle 3x strike fill ball', () => {
     expect(bowling.rollsToFrames(
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10],
     ))
       .toEqual(
         [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [10, 10, 10]],
+      );
+  });
+  it('should handle strike + spare fill ball', () => {
+    expect(bowling.rollsToFrames([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 1, 10]))
+      .toEqual(
+        [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [9, 1, 10]],
       );
   });
 });
@@ -39,7 +45,12 @@ describe('score', () => {
     pinsKnocked.forEach(pinCount => bowling.roll(pinCount));
     expect(bowling.score()).toEqual(48);
   });
-  it('should score the rolls with fill ball correctly', () => {
+  it('should score the rolls with strike + spare fill ball correctly', () => {
+    const pinsKnocked = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 1, 10];
+    pinsKnocked.forEach(pinCount => bowling.roll(pinCount));
+    expect(bowling.score()).toEqual(20);
+  });
+  it('should score the rolls with 3x strike fill ball correctly', () => {
     const pinsKnocked = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
     pinsKnocked.forEach(pinCount => bowling.roll(pinCount));
     expect(bowling.score()).toEqual(30);

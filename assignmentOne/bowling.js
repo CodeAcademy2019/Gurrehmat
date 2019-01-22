@@ -29,7 +29,7 @@ const rollsToFrames = (rollsArray) => {
     frameArray.push(frame);
   }
   if (frameArray.length > 10) {
-    frameArray[9] = frameArray[9].concat(frameArray[10], frameArray[11]);
+    frameArray[9] = frameArray[9].concat(...frameArray.slice(10));
     frameArray.splice(10, 2);
   }
   return frameArray;
